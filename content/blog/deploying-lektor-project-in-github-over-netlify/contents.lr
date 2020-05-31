@@ -1,0 +1,37 @@
+title: Deploying Lektor project in GitHub over Netlify
+---
+author: Nitish
+---
+body:
+
+Following instructions here: https://www.netlify.com/blog/2016/05/25/lektor-on-netlify-a-step-by-step-guide/
+
+Lektor project was created with the name: nitishshukla.com
+
+    nano runtime.txt
+    python 3.7.5 #Ctrl+o, Enter, Ctrl+x, Enter
+
+To find dependencies, we check Lektor on GitHub, and take entries from setup.py>install_requires, however https://github.com/nixjdm/lektor-netlify/issues/3 says we can just put "lektor" in that file. So
+    nano requirements.txt
+    lektor #Ctrl+o, Enter, Ctrl+x, Enter
+
+After this you are supposed to visit https://app.netlify.com, add your new site there, link the Netlify settings to the GitHub repo, go to GitHub and give Netlify the authority to modify files in the repo, then come back to Netlify and configure deployment parameters for your repo (which branch you will deploy, build directory, and build command.)
+
+Now you have all the moving parts in place, and you can build your project using Netlify.
+
+Only one catch: "runtime.txt" is supposed to be configured like instructed. Doing so will give the following error:
+
+    netlify /opt/buildhome/pythonpython: No such file or directory
+
+It looks like runtime.txt content is directly plugged into a line of bash. "pythonpython" should actually be a version of Python like python2.7 or python3.5.. Checking my computer's python3 version:
+
+    python3 -V
+    >Python 3.7.5
+
+So after a few trials (change this value, then try to biuld project on Netlify) it turned out that runtime.txt should only have "3.7". The resulted in a successful build and deploy. The site nitishshukla.com works now.
+
+Now we'll just add a decent looking theme, and call it a day.
+---
+pub_date: 2020-05-31
+---
+twitter_handle: Nitish_Shukla
