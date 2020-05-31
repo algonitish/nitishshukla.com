@@ -1,0 +1,29 @@
+title: Hello Website
+---
+pub_date: 2020-05-26
+---
+author: Nitish
+---
+body:
+
+This website is a Lektor creation. It was created by Armin Ronacher, and you can read more about the anecdote for it [here](https://github.com/lektor/lektor).
+
+My own personal website has been vagrant, sometimes a plain HTML sitting in Web 1.0 hosting service, just a sandbox for AJAX/MySQL  scripts. The last avatar was a Gatsby (nodejs) static website served out of this very GitHub. But given my aversion to all forms and manners of JS frameworks, I went looking for the following:
+
+* a simple site
+* that can be regularly updated
+* but doesn't need a complex CMS
+* and can be hosted for free
+* *bonus marks* if interesting to use
+
+Lektor checks all the boxes since
+
+* it spins out a static site
+* that has a simple blogging feature
+* but works from my laptop (pseudo CMS)
+* and saves output to GitHub
+* *bonus marks* since it's a nifty use of Python Flask
+
+The author of Lektor is also the engineer behind Jinja, Werkzeug, and Flask, so that bonus point isn't a surprise. Since the [Lektor desktop application is available only for OS X](https://www.getlektor.com/docs/installation/), I am running the dev version on my Ubuntu PC.
+---
+twitter_handle: nitish_shukla_
