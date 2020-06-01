@@ -1,0 +1,58 @@
+title: Theme-ing Lektor
+---
+_discoverable: yes
+---
+author: Nitish
+---
+body:
+
+Documented steps for changing theme: https://www.getlektor.com/docs/themes/installing/
+
+So first I create a local directory in project root to hold all Lektor themes
+
+    mkdir themes
+
+then I cloned a theme into that folder
+
+    git clone https://github.com/Andrew-Shay/lektor-theme-simple-strap.git themes
+
+then I added a reference to that theme in the project config file:
+
+    nano nitishshukla.com.lektorproject
+    themes = lektor-theme-simple-strap #Ctrl+o, Enter, Ctrl+x, Enter
+
+now update repo
+
+    git add .
+    git commit
+    git push origin master
+
+By this time there was already an error in Netlify:
+
+>12:51:55 AM: Error checking out submodules: fatal: No url found for submodule path 'themes' in .gitmodules
+
+>12:51:55 AM: Failing build: Failed to prepare repo
+
+>12:51:55 AM: Failed during stage 'preparing repo': Error checking out submodules: fatal: No url found for submodule path 'themes' in .gitmodules
+
+>: exit status 128
+
+This basically means that the theme that I cloned into [project]/themes was read by git as a "submodule". But with insufficient metadata, and now git is confused about how to catalog this "submodule". Next time onwards, I will just copy paste theme files into this directory, but for now git has to be placated.
+
+Following GitFu instructions at https://dltj.org/article/how-to-fix-a-directory-that-git-thinks-is-a-submodule/
+
+    git rm --cached themes
+    git add themes/
+    rm -rf themes/
+
+#now update repo
+
+    git add .
+    git commit
+    git push origin master
+
+This ended the misery. Will start over in the next blog.
+---
+pub_date: 2020-06-01
+---
+twitter_handle: Nitish_Shukla_
