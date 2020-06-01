@@ -14,7 +14,7 @@ a:hover {
 header, footer, div.page {
     width: 760px;
     margin: 0 auto;
-    background: #daeef3;
+    background: #acacac;
     padding: 20px 30px;
 }
 
@@ -38,5 +38,11 @@ header nav ul li {
 }
 
 div.page {
-    background: #f1fbfe;
+    background: #ebebeb;
+}
+
+code {
+    background-color: gray;
+    padding-block: 2%;
+    font-family: "Lucida Console", Courier, monospace;
 }
