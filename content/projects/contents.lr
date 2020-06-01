@@ -4,6 +4,6 @@ body:
 
 This is a list of the projects:
 
-* Project 1
-* Project 2
-* Project 3
+* **SwissAlgoKnife** - a simple Python utility for connecting to brokers, gathering and managing market data. A collection of simple and frequently used Python scripts for algo-trading. As of now this includes basic data downloading for Interactive Brokers, Zerodha, and Upstox. Will extend this for the Market Data Projject
+* **Market Data Project**
+* **BakarStar** Sandbox to try out various social media projects. So far, have tried out dev.lemmy.ml/ and postmill.xyz. While Postmill turned out to need just the experience curve I could muster, Lemmy was super easy because it came in its own Docker containers that simply needed deployment, database and all.

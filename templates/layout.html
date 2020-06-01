@@ -1,25 +1,28 @@
 <!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="{{ '/static/style.css'|url }}">
 <title>{% block title %}Welcome{% endblock %} — nitishshukla.com</title>
 <body>
-  <header>
-    <h1>nitishshukla.com</h1>
-    <nav>
-      <ul class="nav navbar-nav">
-        <li{% if this._path == '/' %} class="active"{% endif
-          %}><a href="{{ '/'|url }}">Welcome</a></li>
-        {% for href, title in [
-          ['/blog', 'Blog'],
-          ['/projects', 'Projects'],
-          ['/about', 'About']
-        ] %}
-          <li{% if this.is_child_of(href) %} class="active"{% endif
-            %}><a href="{{ href|url }}">{{ title }}</a></li>
-        {% endfor %}
-      </ul>
-    </nav>
-  </header>
+  <nav class="navbar navbar-expand-sm bg-dark">
+    <ul class="nav navbar-nav">
+      <li{% if this._path == '/' %} class="active nav-item"{% endif
+        %}><a href="{{ '/'|url }}" class="nav-link" >Welcome</a></li>
+      {% for href, title in [
+        ['/blog', 'Blog'],
+        ['/projects', 'Projects'],
+        ['/about', 'About']
+      ] %}
+        <li{% if this.is_child_of(href) %} class="active nav-item"{% endif
+          %}><a href="{{ href|url }}" class="nav-link" >{{ title }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+
+  <!---<header><h1>Nitish Shukla's Personal Website</h1></header>--->
   <div class="page">
     {% block body %}{% endblock %}
   </div>
@@ -27,3 +30,4 @@
     &copy; Copyright 2020 by Nitish.
   </footer>
 </body>
+</html>
