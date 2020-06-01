@@ -39,13 +39,13 @@ By this time there was already an error in Netlify:
 
 This basically means that the theme that I cloned into [project]/themes was read by git as a "submodule". But with insufficient metadata, and now git is confused about how to catalog this "submodule". Next time onwards, I will just copy paste theme files into this directory, but for now git has to be placated.
 
-Following GitFu instructions at https://dltj.org/article/how-to-fix-a-directory-that-git-thinks-is-a-submodule/
+Following GitFu instructions at https://dltj.org/article/how-to-fix-a-directory-that-git-thinks-is-a-submodule/:
 
     git rm --cached themes
     git add themes/
     rm -rf themes/
 
-#now update repo
+Now update repo:
 
     git add .
     git commit
