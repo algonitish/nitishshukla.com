@@ -1,0 +1,13 @@
+title: Notes on Flask
+---
+author: Nitish
+---
+body:
+
+1. **Flask with AJAX** For those well versed with Flask and AJAX this is nothing new, but for newcomers to both/either, the following code snippet is a quick start introduction to using AJAX with Flask on their websites. [Python Flask + JavaScript XMLHttpRequest](https://gist.github.com/KentaYamada/2eed4af1f6b2adac5cc7c9063acf8720). There are a large number of tutorials and examples out there, but this one helped me the most because of its simplicity. It uses plain JavaScript instead of JQuery or any other framework, and given my incremental style of development, and "Mistake Driven Learning" style of learning, this was my starting point for the MarketDB project.
+
+2. **Eschewing JSON** In the current stage, I am avoiding using JSON as much as possible for three conscious reasons: (1) less learning required to handle JSON in JavaScript and Python. I know this is just laziness, and I already do know the basics of JSON in both languages, but using it in a production project requires deeper dive into the standards, which is really not necessary. Lists suffice for simple messaging between server and front end, and larger data uploads and downloads are better done with CSV anyway. (2) Obviates the need for more header files/libraries on both frontend and backend. As it is Python is not the lightest of languages out there and I am already using a framework on top of Python (Flask), so every further overhead avoided is load taken off the server. If everything goes as planned, and one day we post MarketDB application from Python-Flask to Rust-Actix, JSON can be used for simpler code, but Python is already easy to read and write, using JSON doesn't make it any simpler. (3) JSON itself is not a data efficient standard. This is a personal bias of mine, not based on anything I have read (though this is probably common wisdom, hopefully.) JSON is overkill for well structured data like tabular data. There's no need to repeat headers and metadata for every item's row and column, there's no need for multiple backets and braces when a simple CSV will suffice. Using JSON where are CSV would suffice only increases the size of data. The redundant labels and formatting is best avoided.
+---
+pub_date: 2020-06-07
+---
+twitter_handle: Nitish_Shukla_
