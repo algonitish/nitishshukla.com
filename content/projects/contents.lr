@@ -2,8 +2,14 @@ title: Projects
 ---
 body:
 
-This is a list of the projects:
+This is a list of my projects:
 
-* **SwissAlgoKnife** - a simple Python utility for connecting to brokers, gathering and managing market data. A collection of simple and frequently used Python scripts for algo-trading. As of now this includes basic data downloading for Interactive Brokers, Zerodha, and Upstox. Will extend this for the Market Data Projject
+* **SwissAlgoKnife** [https://github.com/algonitish/SwissAlgoKnife] a simple Python utility for connecting to brokers, gathering and managing market data. A collection of simple and frequently used Python scripts for algo-trading. As of now this includes basic data downloading for Interactive Brokers, Zerodha, and Upstox. Will extend this for the Market Data Project.
+* **BakarStar** [https://bakarstar.com/] Sandbox to try out various social media projects. So far, have tried out dev.lemmy.ml/ and postmill.xyz. While Postmill turned out to need just the experience curve I could muster, Lemmy was super easy because it came in its own Docker containers that simply needed deployment, database and all. Project shelved right now.
 * **Market Data Project**
-* **BakarStar** Sandbox to try out various social media projects. So far, have tried out dev.lemmy.ml/ and postmill.xyz. While Postmill turned out to need just the experience curve I could muster, Lemmy was super easy because it came in its own Docker containers that simply needed deployment, database and all.
+* **News Project** [https://nitishshukla.in] given all the subjectivity in news and advances in NLP, there should be a new way to read news that's devoid of clickbait and sensationalism. This project is a step in that direction. My initial criteria/scope limits are:
+  * English langauge - this allows us to try all available NLP engines. Since local languages are planned, focus will be on multi-lingual ones like Stanza (StanfordNLP).
+  * Indian-National - a geographical scope. Can be expanded to global, local, or foreign later.
+  * Dailies - a time scope. Magazine articles tend to be more generous in coverage, even historical at times.
+  * Print medium - print papers tend not to "SEO optimise" or publish "clickbait", are more accountable for coverage
+

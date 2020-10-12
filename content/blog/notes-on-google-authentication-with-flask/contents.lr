@@ -1,0 +1,46 @@
+title: Notes on Google Authentication with Flask
+---
+_discoverable: yes
+---
+author: Nitish
+---
+body:
+
+There are many ways to set up Google Authentication with Flask. I found 3 self-contained guides using completely different methods, and I played with all 3 to find their strong points and problems. This blog documents those observations:
+
+1. [Create a Flask Application With Google Login](https://realpython.com/flask-google-login/)
+  * Why you should try this: 
+    * good explanations that help you understand the OAuth workflow
+    * part of Real Python's larger Flask tutorial. Although I did not use it, it might be good to see how it fits into the larger framework
+    * uses [flask-login](https://github.com/maxcountryman/flask-login) module which counts Flask personalities like David Baumgold and Miguel Grinberg as contributors, so current implementation as well as future developments are/will be tightly integrated with the Flask framework
+  * Why you might not end up using this implementation:
+    * simpler than Matt Button's implementation (the next option) but still complicated
+    * use of custom database classes (instead of Flask's models.py framework) adds to loose ends you have tidy up when using in your own project
+
+2. [Google Authentication with Python and Flask](https://www.mattbutton.com/2019/01/05/google-authentication-with-python-and-flask/)
+  * Why you should try this:
+    * written for applications that use the larger Google API ecosystem using Google Drive as example. So if (1) your requirement is specifically Flask-Google interoperability or if you (1) just want to learn more than just OAuth, then this tutorial is made for you
+  * Why you might not end up using this implementation:
+    * this is the most complex implementation out of these three guides, even though it uses Authlib, which, as you will see in the next point, is a breeze even compared to other Flask plugins/extensions. Perhaps it's not the implementation but the tutorial that is not well composed
+    * does not touch upon database/model integration
+    * steps are clearly enunciated, but there are no explanations or discussions around what is being done. If you like mechanical step-by-step guides (I do sometimes, when I already understand the larger idea and want to know the specifics)
+
+3. [Hsiaoming Yang's Authlib project](https://github.com/authlib/demo-oauth-client/tree/master/flask-google-login) This is not a tutorial or guide at all! There are no instructions, no discussions, and no larger context or project which add color to this guide. It's just one file of code, that too just 33 sloc (plus a config file) But ...
+  * Why you should try this:
+    * Pythonic Code - crisply written python code that speaks so clearly for itself that you don't even need comments
+    * it shows exactly what needs to be done how, without any distraction
+    * minimalism of the code makes it a cake to insert the right pieces in the right places of an existing project
+  * Why you ~~might not end up using this~~ *should also read the above* implementations:
+    * you will probably use this code, even if you follow Matt Button's tutorial, since that too uses Authlib.
+    * but you should read and try out the first two tutorials first. It's always better to learn about a concept in certain contexts, so that not only is adapting them to your immediate needs is easy, but also if a related context arises in the future, you will be more likely to recall the concept, and thus the solution.
+
+
+**IMPORTANT**
+
+1. If you have a bevy of users for different processes, especially in production (as you should), you might face some trouble storing security codes as environment variables. For example, you may commit GOOGLE_CLIENT_SECRET as environment variable from terminal manually, but the project runs as a different user, and therefore doesn't have access to os.environ.get("GOOGLE_CLIENT_SECRET", None).
+
+2. None of the guides emphasise on the importance of secret keys for Flask sessions. Do NOT forget to use a foolproof method of generating the secret key (like the subheading *How to generate good secret keys* on this page: https://flask.palletsprojects.com/en/1.0.x/quickstart/#sessions), and read [this blog by Martin Fowler](https://martinfowler.com/articles/session-secret.html) to understand why session secrets are so critical.
+---
+pub_date: 2020-10-12
+---
+twitter_handle: Nitish_Shukla_
